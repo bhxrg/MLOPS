@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Credit Risk Prediction</title>
+</head>
+<body>
+    <h1>Credit Risk Prediction Form</h1>
+    <form action="/predict" method="post">
+        <div>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="Age" required>
+        </div>
+
+        <div>
+            <label for="income">Income:</label>
+            <input type="number" id="income" name="Income" required>
+        </div>
+
+        <div>
+            <label for="employmentType">Employment Type:</label>
+            <select id="employmentType" name="employmentType" required>
+                <option value="Salaried">Salaried</option>
+                <option value="Self-employed">Self-employed</option>
+                <option value="Unemployed">Unemployed</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="residenceType">Residence Type:</label>
+            <select id="residenceType" name="residenceType" required>
+                <option value="Parental Home">Parental Home</option>
+                <option value="Rented">Rented</option>
+                <option value="Owned">Owned</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="creditScore">Credit Score:</label>
+            <input type="number" id="creditScore" name="creditScore" required>
+        </div>
+
+        <div>
+            <label for="loanAmount">Loan Amount:</label>
+            <input type="number" id="loanAmount" name="loanAmount" required>
+        </div>
+
+        <div>
+            <label for="loanTerm">Loan Term:</label>
+            <input type="number" id="loanTerm" name="loanTerm" required>
+        </div>
+
+        <div>
+            <label for="previousDefault">Previous Default:</label>
+            <select id="previousDefault" name="previousDefault" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <button type="submit">Predict Risk Category</button>
+    </form>
+    <h2>Prediction Result: {{ prediction }}</h2>
+    <h3>Submitted Data:</h3>
+    <table>
+        {% for key, value in data.items() %}
+        <tr>
+            <th>{{ key }}</th>
+            <td>{{ value }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
